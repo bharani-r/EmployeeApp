@@ -1,0 +1,69 @@
+﻿@model EmployeeUI.Models.Employee
+
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add New Employee</h2>
+<body>
+    @using (Html.BeginForm())
+    {
+
+        <div style="text-align:center">
+
+            <table>
+                <tr>
+                    <td>
+                        Id :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.empId)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Name :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.empName)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Email :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.empMail)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Phone :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.empPhone)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    }
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+</body>

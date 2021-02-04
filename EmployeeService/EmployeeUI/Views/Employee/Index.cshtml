@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EmployeeUI.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    <div>
+        <h2>Employee Details</h2>
+
+        @Html.ActionLink("Add Employee","Add","Employee")
+    </div>
+    <div>
+        <table>
+            <tr style="background-color:#FFFACD;text-align:center">
+                <th style="text-align:left">
+                    Id
+                </th>
+                <th style="text-align:left">
+                    Name
+                </th>
+                <th style="text-align:left">
+                    Email
+                </th>
+                <th style="text-align:left">
+                    Phone
+                </th>
+                <th style="text-align:left">
+                    Manage
+                </th>  
+            </tr>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr style="background-color: #FFFFF0">
+                        <td>
+                            @item.empId
+                        </td>
+                        <td>
+                            @item.empName
+                        </td>
+                        <td>
+                            @item.empMail
+                        </td>
+                        <td>
+                            @item.empPhone
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = @item.empId }) /@Html.ActionLink("Delete", "Delete", new { id = @item.empId })
+
+                        </td>
+
+                    </tr>
+                }
+            }
+
+
+        </table>
+    </div>
+}
+
